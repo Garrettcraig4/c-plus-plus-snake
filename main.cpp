@@ -91,6 +91,24 @@ void Input()
 
 void Logic()
 {
+    switch (dir)
+    {
+    case LEFT:
+        x--;
+        break;
+
+    case RIGHT:
+        x++;
+        break;
+    case UP:
+        y--;
+        break;
+    case DOWN:
+        y++;
+        break;
+    default:
+        break;
+    }
 }
 
 int main()
