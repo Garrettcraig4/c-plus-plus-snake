@@ -1,5 +1,7 @@
 #include <iostream>
-#include <conio.h>
+#include <cstdlib>
+#include <ncurses.h>
+// #include <conio.h>
 
 using namespace std;
 bool gameOver;
@@ -65,27 +67,29 @@ void Draw()
 void Input()
 {
 
-    if (_kbhit())
-    {
-        switch (_getch())
-        {
-        case 'a':
-            dir = LEFT;
-            break;
+    keypad(stdscr, TRUE);
+    halfdelay(1);
 
-        case 'd':
-            dir = RIGHT;
-            break;
-        case 'w':
-            dir = UP;
-            break;
-        case 's':
-            dir = DOWN;
-            break;
-        case 'x':
-            gameOver = true;
-            break;
-        }
+    int c = getch();
+
+    switch (c)
+    {
+    case KEY_LEFT:
+        dir = LEFT;
+        break;
+
+    case KEY_RIGHT:
+        dir = RIGHT;
+        break;
+    case KEY_UP:
+        dir = UP;
+        break;
+    case KEY_DOWN:
+        dir = DOWN;
+        break;
+    case 113:
+        gameOver = true;
+        break;
     }
 }
 
